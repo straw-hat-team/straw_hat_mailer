@@ -1,13 +1,13 @@
 defmodule StrawHat.Mailer.Mixfile do
   use Mix.Project
 
-  @version "0.0.3"
+  @version "0.1.0"
 
   @elixir_version "~> 1.5"
   @name :straw_hat_mailer
   @organization "straw_hat"
   @description """
-    Mailer Management
+    Email Management
   """
   @source_url "https://github.com/straw-hat-llc/straw_hat_mailer"
 
@@ -56,12 +56,16 @@ defmodule StrawHat.Mailer.Mixfile do
 
   defp deps do
     [
+      {:straw_hat, "~> 0.0.10", organization: "straw_hat"},
+
       {:postgrex, "~> 0.13.2"},
       {:ecto, "~> 2.2"},
       {:scrivener_ecto, "~> 1.2"},
+      {:exnumerator, "~> 1.2"},
 
       {:swoosh, "~> 0.8.0"},
       {:gen_smtp, "~> 0.11.0"},
+      {:mustache, "~> 0.3.1"},
 
       # Testing
       {:ex_machina, ">= 0.0.0", only: :test},
@@ -90,7 +94,10 @@ defmodule StrawHat.Mailer.Mixfile do
         "README*",
         "LICENSE*"
       ],
-      maintainers: ["Osley Zorrilla"],
+      maintainers: [
+        "Yordis Prieto",
+        "Osley Zorrilla"
+      ],
       licenses: ["MIT"],
       links: %{"GitHub" => @source_url}
     ]
